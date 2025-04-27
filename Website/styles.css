@@ -1,0 +1,1084 @@
+/* 
+ * Ducati - The Land of Joy
+ * Main Stylesheet
+ */
+
+/* ===== RESET & BASE STYLES ===== */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    /* Color variables */
+    --red-ducati: #e30613;
+    --black-ducati: #111111;
+    --dark-gray: #222222;
+    --light-gray: #f5f5f5;
+    --white: #ffffff;
+    
+    /* Typography */
+    --font-primary: 'Roboto', sans-serif;
+    
+    /* Transition speeds */
+    --transition-fast: 0.2s;
+    --transition-medium: 0.4s;
+    --transition-slow: 0.6s;
+}
+
+html, body {
+    font-family: var(--font-primary);
+    font-size: 16px;
+    line-height: 1.5;
+    color: var(--black-ducati);
+    background-color: var(--white);
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+    transition: color var(--transition-fast) ease;
+}
+
+a:hover {
+    color: var(--red-ducati);
+}
+
+button {
+    background: none;
+    border: none;
+    font-family: inherit;
+    cursor: pointer;
+}
+
+ul, ol {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+/* ===== LOADING SCREEN ===== */
+.loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--black-ducati);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    transition: opacity 0.5s ease;
+}
+
+.loading-logo {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 20px;
+}
+
+.ducati-logo {
+    width: 100%;
+    height: 100%;
+}
+
+.loading-progress {
+    width: 200px;
+    height: 2px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.loading-bar {
+    height: 100%;
+    width: 0;
+    background-color: var(--red-ducati);
+    transition: width 0.2s ease;
+}
+
+/* ===== HEADER STYLES ===== */
+.main-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    z-index: 100;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.main-header.scrolled {
+    background-color: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px);
+}
+
+.main-header.hidden {
+    transform: translateY(-100%);
+}
+
+.header-logo {
+    display: flex;
+    flex-direction: column;
+}
+
+.scrambler-logo {
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: var(--white);
+    text-transform: uppercase;
+}
+
+.tagline {
+    font-size: 12px;
+    color: var(--white);
+    opacity: 0.7;
+    letter-spacing: 1px;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.country-selector, .my-account {
+    display: flex;
+    align-items: center;
+    color: var(--white);
+    font-size: 12px;
+    gap: 5px;
+    cursor: pointer;
+    padding: 5px 10px;
+    border-radius: 3px;
+    transition: background-color var(--transition-fast) ease;
+}
+
+.country-selector:hover, .my-account:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.country-selector img {
+    width: 16px;
+    height: auto;
+}
+
+/* ===== NAVIGATION STYLES ===== */
+.main-nav {
+    position: fixed;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 40px;
+    z-index: 90;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.main-nav.scrolled {
+    background-color: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(10px);
+}
+
+.main-nav.hidden {
+    transform: translateY(-100%);
+}
+
+.hamburger-menu {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 24px;
+    height: 18px;
+    cursor: pointer;
+}
+
+.hamburger-menu span {
+    width: 100%;
+    height: 2px;
+    background-color: var(--white);
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.hamburger-menu.active span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.hamburger-menu.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger-menu.active span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+.nav-links {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.nav-links li {
+    position: relative;
+}
+
+.nav-links a {
+    color: var(--white);
+    font-size: 14px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 5px 0;
+    position: relative;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--red-ducati);
+    transition: width var(--transition-fast) ease;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+.dropdown {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+}
+
+.dropdown i {
+    color: var(--white);
+    font-size: 10px;
+    transition: transform var(--transition-fast) ease;
+}
+
+.dropdown.open i {
+    transform: rotate(180deg);
+}
+
+.ducati-emblem {
+    width: 50px;
+    height: 50px;
+}
+
+/* ===== HERO SECTION ===== */
+.hero-section {
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-image {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.hero-image::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.7) 100%);
+}
+
+.hero-content {
+    position: absolute;
+    bottom: 15%;
+    left: 10%;
+    color: var(--white);
+    z-index: 1;
+    max-width: 600px;
+}
+
+.hero-subtitle {
+    font-size: 18px;
+    font-weight: 400;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+    opacity: 0.9;
+}
+
+.hero-title {
+    font-size: 72px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    line-height: 1.1;
+}
+
+.hero-description {
+    font-size: 18px;
+    margin-bottom: 30px;
+    opacity: 0.9;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 12px 30px;
+    background-color: var(--red-ducati);
+    color: var(--white);
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border-radius: 3px;
+    transition: background-color var(--transition-fast) ease;
+}
+
+.cta-button:hover {
+    background-color: #c60511;
+    color: var(--white);
+}
+
+.scroll-indicator {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+}
+
+.arrow-down {
+    width: 30px;
+    height: 30px;
+    border-right: 2px solid var(--white);
+    border-bottom: 2px solid var(--white);
+    transform: rotate(45deg);
+    opacity: 0.7;
+}
+
+/* ===== MODEL SHOWCASE ===== */
+.model-showcase {
+    padding: 100px 0;
+    background-color: var(--black-ducati);
+    color: var(--white);
+    position: relative;
+}
+
+.ducati-range {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.ducati-range h2 {
+    font-size: 48px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.model-slider {
+    display: flex;
+    gap: 30px;
+    padding: 0 40px;
+    overflow-x: auto;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+    scroll-snap-type: x mandatory;
+}
+
+.model-slider::-webkit-scrollbar {
+    display: none; /* Chrome, Safari and Opera */
+}
+
+.model-card {
+    flex: 0 0 350px;
+    position: relative;
+    background-color: var(--dark-gray);
+    border-radius: 8px;
+    overflow: hidden;
+    scroll-snap-align: start;
+    transition: transform var(--transition-medium) ease;
+    transform: translateY(50px);
+    opacity: 0;
+}
+
+.model-card.hover {
+    transform: translateY(-10px);
+}
+
+.model-tag {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    padding: 5px 10px;
+    background-color: var(--red-ducati);
+    color: var(--white);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    border-radius: 3px;
+    z-index: 2;
+}
+
+.model-image-container {
+    position: relative;
+    height: 220px;
+    overflow: hidden;
+}
+
+.model-image, .model-image-hover {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity var(--transition-medium) ease;
+}
+
+.model-image-hover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+}
+
+.model-card:hover .model-image {
+    opacity: 0;
+}
+
+.model-card:hover .model-image-hover {
+    opacity: 1;
+}
+
+.model-name {
+    padding: 20px;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.add-button {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: var(--red-ducati);
+    color: var(--white);
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform var(--transition-fast) ease, background-color var(--transition-fast) ease;
+}
+
+.add-button:hover {
+    transform: scale(1.1);
+    background-color: #c60511;
+}
+
+.model-card.selected .add-button {
+    content: '✓';
+}
+
+.slider-indicator {
+    margin-top: 40px;
+    text-align: center;
+    padding: 0 40px;
+}
+
+.slider-bar {
+    width: 100%;
+    height: 2px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.slider-progress {
+    height: 100%;
+    width: 0%;
+    background-color: var(--red-ducati);
+    transition: width var(--transition-medium) ease;
+}
+
+.section-title {
+    margin-top: 60px;
+    text-align: center;
+    font-size: 36px;
+    font-weight: 700;
+}
+
+/* ===== DWP SECTION ===== */
+.dwp-section {
+    background-color: var(--dark-gray);
+    color: var(--white);
+}
+
+.split-section {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.split-left, .split-right {
+    flex: 1;
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 60px;
+    position: relative;
+    overflow: hidden;
+}
+
+.split-left {
+    background-color: var(--black-ducati);
+}
+
+.split-right.racing {
+    background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('../images/ducati-racing.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.content-wrapper {
+    text-align: center;
+    max-width: 500px;
+}
+
+.section-heading {
+    font-size: 48px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.section-subheading {
+    font-size: 24px;
+    font-weight: 400;
+    margin-bottom: 30px;
+}
+
+.dwp-logo {
+    font-size: 72px;
+    font-weight: 900;
+    color: var(--red-ducati);
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+}
+
+.section-title {
+    font-size: 30px;
+    font-weight: 500;
+}
+
+.racing-logo {
+    margin-bottom: 20px;
+}
+
+.racing-logo img {
+    max-width: 200px;
+    margin: 0 auto;
+}
+
+.tag {
+    display: inline-block;
+    padding: 5px 10px;
+    background-color: var(--red-ducati);
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 15px;
+    border-radius: 3px;
+}
+
+.split-left.dre {
+    background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('../images/ducati-dre.jpg');
+    background-size: cover;
+    background-position: center;
+    min-height: 400px;
+}
+
+.highlight {
+    color: var(--red-ducati);
+    display: block;
+    font-size: 64px;
+    margin-bottom: 5px;
+}
+
+.sub {
+    display: block;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 1.2;
+}
+
+/* ===== CONFIGURATOR SECTION ===== */
+.configurator-section {
+    padding: 100px 40px;
+    background-color: var(--light-gray);
+}
+
+.config-options {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.config-option {
+    flex: 0 0 calc(33.333% - 20px);
+    min-width: 300px;
+    height: 350px;
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform var(--transition-medium) ease;
+}
+
+.config-option:hover {
+    transform: translateY(-10px);
+}
+
+.config-image {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    transition: transform var(--transition-medium) ease;
+}
+
+.config-option:hover .config-image {
+    transform: scale(1.05);
+}
+
+.config-title {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px;
+    background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 100%);
+    color: var(--white);
+    font-size: 24px;
+    font-weight: 500;
+}
+
+/* ===== COMPARATOR SECTION ===== */
+.comparator-section {
+    padding: 100px 40px;
+    background-color: var(--white);
+}
+
+.comparator-content {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-header {
+    flex: 1;
+}
+
+.section-description {
+    margin: 20px 0 30px;
+    font-size: 18px;
+    line-height: 1.6;
+    color: #555;
+}
+
+.comparator-image {
+    flex: 1;
+}
+
+.comparator-image img {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+/* ===== CONTACT SECTION ===== */
+.contact-section {
+    position: relative;
+}
+
+.contact-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--black-ducati);
+    color: var(--white);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+    z-index: 50;
+    transition: transform var(--transition-medium) ease;
+}
+
+.contact-bar.expanded {
+    transform: translateY(-300px);
+    height: 350px;
+}
+
+.contact-dealer-btn {
+    padding: 10px 20px;
+    background-color: var(--red-ducati);
+    color: var(--white);
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 3px;
+    transition: background-color var(--transition-fast) ease;
+}
+
+.contact-dealer-btn:hover {
+    background-color: #c60511;
+}
+
+.expand-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color var(--transition-fast) ease;
+}
+
+.expand-btn:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* ===== FOOTER ===== */
+.main-footer {
+    background-color: var(--black-ducati);
+    color: var(--white);
+    padding: 80px 40px 40px;
+}
+
+.footer-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    margin-bottom: 60px;
+}
+
+.footer-column {
+    flex: 1;
+    min-width: 200px;
+}
+
+.footer-column h3 {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.footer-column h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 40px;
+    height: 2px;
+    background-color: var(--red-ducati);
+}
+
+.footer-column ul {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.footer-column a {
+    color: #999;
+    font-size: 14px;
+    transition: color var(--transition-fast) ease;
+}
+
+.footer-column a:hover {
+    color: var(--white);
+}
+
+.social-icons {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.social-icons a {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color var(--transition-fast) ease;
+}
+
+.social-icons a:hover {
+    background-color: var(--red-ducati);
+}
+
+.social-icons i {
+    color: var(--white);
+    font-size: 16px;
+}
+
+.newsletter p {
+    color: #999;
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+.newsletter-btn {
+    padding: 10px 20px;
+    background-color: var(--red-ducati);
+    color: var(--white);
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 3px;
+    transition: background-color var(--transition-fast) ease;
+}
+
+.newsletter-btn:hover {
+    background-color: #c60511;
+}
+
+.footer-bottom {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.copyright {
+    color: #666;
+    font-size: 12px;
+}
+
+.footer-links {
+    display: flex;
+    gap: 15px;
+}
+
+.footer-links a {
+    color: #666;
+    font-size: 12px;
+    transition: color var(--transition-fast) ease;
+}
+
+.footer-links a:hover {
+    color: var(--white);
+}
+
+/* Custom Cursor */
+.custom-cursor, .cursor-follower {
+    position: fixed;
+    pointer-events: none;
+    border-radius: 50%;
+    z-index: 9999;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.custom-cursor {
+    width: 8px;
+    height: 8px;
+    background-color: var(--ducati-red);
+    transform: translate(-50%, -50%);
+    transition-duration: 0.1s;
+}
+
+.cursor-follower {
+    width: 40px;
+    height: 40px;
+    border: 1px solid var(--ducati-red);
+    transform: translate(-50%, -50%);
+    transition-duration: 0.3s;
+}
+
+body:hover .custom-cursor,
+body:hover .cursor-follower {
+    opacity: 1;
+}
+
+/* Responsive Styles */
+@media (max-width: 1200px) {
+    .nav-links li {
+        margin: 0 10px;
+    }
+    
+    .right-links li a {
+        font-size: 0.7rem;
+    }
+    
+    .hero-title {
+        font-size: 3.5rem;
+    }
+    
+    .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 992px) {
+    .main-nav {
+        padding: 0 15px;
+    }
+    
+    .hamburger-menu {
+        display: flex;
+    }
+    
+    .nav-links {
+        display: none;
+    }
+    
+    .ducati-emblem {
+        margin: 0 auto;
+    }
+    
+    .hero-content {
+        bottom: 10%;
+        left: 5%;
+        max-width: 90%;
+    }
+    
+    .hero-title {
+        font-size: 3rem;
+    }
+    
+    .split-section {
+        flex-direction: column;
+        height: auto;
+    }
+    
+    .split-left, .split-right {
+        height: 50vh;
+    }
+    
+    .config-options {
+        flex-direction: column;
+    }
+    
+    .config-option {
+        margin-bottom: 20px;
+    }
+    
+    .comparator-content {
+        flex-direction: column;
+    }
+    
+    .section-header {
+        padding-right: 0;
+        margin-bottom: 40px;
+    }
+}
+
+@media (max-width: 768px) {
+    .main-header {
+        padding: 10px 15px;
+    }
+    
+    .scrambler {
+        font-size: 0.9rem;
+    }
+    
+    .tagline {
+        display: none;
+    }
+    
+    .country-selector, .my-account {
+        margin-left: 15px;
+    }
+    
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+    
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    
+    .hero-description {
+        font-size: 1.2rem;
+    }
+    
+    .model-slider {
+        padding: 0 15px;
+    }
+    
+    .model-card {
+        width: 250px;
+        margin-right: 20px;
+    }
+    
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .footer-bottom {
+        flex-direction: column;
+    }
+    
+    .copyright {
+        margin-bottom: 20px;
+    }
+    
+    .footer-links {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .footer-links a {
+        margin: 5px 10px;
+    }
+}
+
+@media (max-width: 576px) {
+    .hero-title {
+        font-size: 2rem;
+    }
+    
+    .section-heading {
+        font-size: 2.5rem;
+    }
+    
+    .section-subheading {
+        font-size: 1.5rem;
+    }
+    
+    .section-header .section-title {
+        font-size: 1.5rem;
+    }
+}

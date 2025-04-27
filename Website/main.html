@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ducati - The Land of Joy</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="animations.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body data-scroll-container>
+    <!-- Loading Screen -->
+    <div class="loading-screen">
+        <div class="loading-logo">
+            <svg class="ducati-logo" viewBox="0 0 100 100">
+                <path d="M50 20C33.43 20 20 33.43 20 50s13.43 30 30 30 30-13.43 30-30S66.57 20 50 20zm0 55c-13.81 0-25-11.19-25-25s11.19-25 25-25 25 11.19 25 25-11.19 25-25 25z" fill="#E30613"/>
+                <path d="M65 50H35l15-10z" fill="#E30613"/>
+            </svg>
+        </div>
+        <div class="loading-progress">
+            <div class="loading-bar"></div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="main-header">
+        <div class="header-logo">
+            <a href="#" class="scrambler-logo">SCRAMBLER DUCATI</a>
+            <div class="tagline">THE LAND OF JOY</div>
+        </div>
+        <div class="header-right">
+            <div class="country-selector">
+                <img src="images/india-flag.png" alt="India Flag">
+                <span>INDIA</span>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="my-account">
+                <span>MYDUCATI</span>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="main-nav">
+        <div class="hamburger-menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <ul class="nav-links">
+            <li class="dropdown">
+                <a href="#">MODELS</a>
+                <i class="fas fa-chevron-down"></i>
+            </li>
+            <li class="dropdown">
+                <a href="#">EQUIPMENT</a>
+                <i class="fas fa-chevron-down"></i>
+            </li>
+            <li><a href="#">DWP 2026</a></li>
+            <li><a href="#">TEST RIDE</a></li>
+        </ul>
+        <div class="ducati-emblem">
+            <svg viewBox="0 0 100 100">
+                <path d="M50 20C33.43 20 20 33.43 20 50s13.43 30 30 30 30-13.43 30-30S66.57 20 50 20zm0 55c-13.81 0-25-11.19-25-25s11.19-25 25-25 25 11.19 25 25-11.19 25-25 25z" fill="#E30613"/>
+                <path d="M65 50H35l15-10z" fill="#E30613"/>
+            </svg>
+        </div>
+        <ul class="nav-links right-links">
+            <li><a href="#">DUCATI APPROVED - PRE-OWNED BIKES PROGRAM</a></li>
+            <li><a href="#">DEALER LOCATOR</a></li>
+            <li><a href="#">CONFIGURATOR</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section" data-scroll-section>
+        <div class="hero-image" style="background-image: url('images/multistrada-hero.jpg');">
+            <div class="hero-content">
+                <h2 class="hero-subtitle">EXPAND YOUR LIMITS</h2>
+                <h1 class="hero-title">Multistrada V4</h1>
+                <p class="hero-description">The motorcycle that rewrites the rules of travel.</p>
+                <a href="#" class="cta-button">DISCOVER MORE</a>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="arrow-down"></div>
+        </div>
+    </section>
+
+    <!-- Motorcycle Model Showcase -->
+    <section class="model-showcase" data-scroll-section>
+        <div class="ducati-range">
+            <h2>DUCATI RANGE</h2>
+        </div>
+        <div class="model-slider" data-scroll data-scroll-direction="horizontal" data-scroll-speed="3">
+            <div class="model-card">
+                <div class="model-tag">NEW</div>
+                <div class="model-image-container">
+                    <img src="images/scrambler-icon-dark.jpg" alt="Scrambler Icon Dark" class="model-image">
+                    <img src="images/scrambler-icon-dark-hover.jpg" alt="Scrambler Icon Dark" class="model-image-hover">
+                </div>
+                <h3 class="model-name">Scrambler Icon Dark</h3>
+                <button class="add-button">+</button>
+            </div>
+            <div class="model-card">
+                <div class="model-tag">NEW</div>
+                <div class="model-image-container">
+                    <img src="images/panigale-v4.jpg" alt="Panigale V4" class="model-image">
+                    <img src="images/panigale-v4-hover.jpg" alt="Panigale V4" class="model-image-hover">
+                </div>
+                <h3 class="model-name">Panigale V4</h3>
+                <button class="add-button">+</button>
+            </div>
+            <div class="model-card">
+                <div class="model-tag">NEW</div>
+                <div class="model-image-container">
+                    <img src="images/desertx-discovery.jpg" alt="DesertX Discovery" class="model-image">
+                    <img src="images/desertx-discovery-hover.jpg" alt="DesertX Discovery" class="model-image-hover">
+                </div>
+                <h3 class="model-name">DesertX Discovery</h3>
+                <button class="add-button">+</button>
+            </div>
+            <div class="model-card">
+                <div class="model-tag">NEW</div>
+                <div class="model-image-container">
+                    <img src="images/multistrada-v4-rs.jpg" alt="Multistrada V4 RS" class="model-image">
+                    <img src="images/multistrada-v4-rs-hover.jpg" alt="Multistrada V4 RS" class="model-image-hover">
+                </div>
+                <h3 class="model-name">Multistrada V4 RS</h3>
+                <button class="add-button">+</button>
+            </div>
+        </div>
+        <div class="slider-indicator">
+            <div class="slider-bar">
+                <div class="slider-progress"></div>
+            </div>
+        </div>
+        <div class="section-title">
+            <h2>Highlights</h2>
+        </div>
+    </section>
+
+    <!-- Ducati World Premiere Section -->
+    <section class="dwp-section" data-scroll-section>
+        <div class="split-section">
+            <div class="split-left">
+                <div class="content-wrapper">
+                    <h2 class="section-heading">Ducati 2026</h2>
+                    <h3 class="section-subheading">World Première</h3>
+                    <div class="dwp-logo">DWP 2026</div>
+                    <h4 class="section-title">Ducati World Première 2026</h4>
+                </div>
+            </div>
+            <div class="split-right racing">
+                <div class="content-wrapper">
+                    <div class="racing-logo">
+                        <img src="images/ducati-corse-logo.png" alt="Ducati Corse">
+                    </div>
+                    <div class="racing-content">
+                        <span class="tag">RACING</span>
+                        <h3 class="section-title">The MotoGP, Superbike and Off-Road World</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="split-section">
+            <div class="split-left dre">
+                <div class="content-wrapper">
+                    <h2 class="section-heading">
+                        <span class="highlight">DRE</span>
+                        <span class="sub">Riding</span>
+                        <span class="sub">Experience</span>
+                    </h2>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Configurator Section -->
+    <section class="configurator-section" data-scroll-section>
+        <div class="config-options">
+            <div class="config-option">
+                <div class="config-image" style="background-image: url('images/ducati-configurator.jpg');"></div>
+                <div class="config-title">Ducati Configurator</div>
+            </div>
+            <div class="config-option">
+                <div class="config-image" style="background-image: url('images/scrambler-configurator.jpg');"></div>
+                <div class="config-title">Scrambler Configurator</div>
+            </div>
+            <div class="config-option">
+                <div class="config-image" style="background-image: url('images/ducati-shop.jpg');"></div>
+                <div class="config-title">Ducati Shop</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Multistrada Comparator -->
+    <section class="comparator-section" data-scroll-section>
+        <div class="comparator-content">
+            <div class="section-header">
+                <span class="model-tag">MULTISTRADA</span>
+                <h2 class="section-title">Which Multistrada is right for you? Find out with the new comparator.</h2>
+                <p class="section-description">Your riding style comes first. Compare models to choose the bike best suited to your needs.</p>
+                <a href="#" class="cta-button">GO TO COMPARATOR</a>
+            </div>
+            <div class="comparator-image">
+                <img src="images/multistrada-comparison.png" alt="Multistrada Models Comparison">
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section" data-scroll-section>
+        <div class="contact-bar">
+            <button class="contact-dealer-btn">CONTACT DEALER</button>
+            <button class="expand-btn"><i class="fas fa-chevron-up"></i></button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="main-footer" data-scroll-section>
+        <div class="footer-grid">
+            <div class="footer-column">
+                <h3>MODELS</h3>
+                <ul>
+                    <li><a href="#">Diavel</a></li>
+                    <li><a href="#">Multistrada</a></li>
+                    <li><a href="#">Panigale</a></li>
+                    <li><a href="#">Scrambler</a></li>
+                    <li><a href="#">Streetfighter</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>SERVICES</h3>
+                <ul>
+                    <li><a href="#">Ducati Card</a></li>
+                    <li><a href="#">Financial Services</a></li>
+                    <li><a href="#">Warranty</a></li>
+                    <li><a href="#">Owner's Manual</a></li>
+                    <li><a href="#">Roadside Assistance</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>RACING</h3>
+                <ul>
+                    <li><a href="#">MotoGP</a></li>
+                    <li><a href="#">Superbike</a></li>
+                    <li><a href="#">Off-Road</a></li>
+                    <li><a href="#">Ducati Corse</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>FOLLOW US</h3>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+                <div class="newsletter">
+                    <h3>NEWSLETTER</h3>
+                    <p>Sign up to stay updated on Ducati world</p>
+                    <button class="newsletter-btn">SUBSCRIBE</button>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="copyright">
+                <p>© 2025 Ducati Motor Holding S.p.A. – A Sole Shareholder Company - A Company subject to the Management and Coordination activities of AUDI AG</p>
+            </div>
+            <div class="footer-links">
+                <a href="#">Legal</a>
+                <a href="#">Privacy</a>
+                <a href="#">Cookie Policy</a>
+                <a href="#">Corporate Information</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Custom Cursor -->
+    <div class="custom-cursor"></div>
+    <div class="cursor-follower"></div>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.0/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.0/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.0/ScrollToPlugin.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.0/SplitText.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/smooth-scrollbar/8.8.1/smooth-scrollbar.js"></script>
+    <script src="lenis.js"></script>
+    <script src="main.js"></script>
+    <script src="animations.js"></script>
+    <script src="cursor.js"></script>
+    <script src="animations.js"></script>
+
+</body>
+</html>
